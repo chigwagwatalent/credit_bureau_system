@@ -1,0 +1,13 @@
+<footer class="app-footer py-4">
+  <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between">
+    <div class="small">
+      <strong>DATUM</strong> • Credit Bureau System —
+      <span th:text="${#dates.format(#dates.createNow(), 'yyyy')}">2025</span>
+    </div>
+    <div class="small">
+      <a th:href="@{/privacy}">Privacy</a> ·
+      <a th:href="@{/terms}">Terms</a> ·
+      <a th:href="@{/contact}">Contact</a>
+    </div>
+  </div>
+</footer>

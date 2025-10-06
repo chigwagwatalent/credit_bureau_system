@@ -1,0 +1,33 @@
+<!-- DATUM Sidebar Fragment -->
+<aside th:fragment="appSidebar" class="datum-sidebar">
+  <div class="sidebar-brand">
+    <span class="badge">D</span>
+    <span class="name">DATUM</span>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="item active" th:href="@{/admin/dashboard}">
+      <i class="bi bi-grid-1x2"></i>
+      <span>Dashboard</span>
+    </a>
+
+    <div class="group">Application</div>
+    <a class="item" th:href="@{/admin/civilians}">
+      <i class="bi bi-people"></i><span>Civilians</span>
+    </a>
+    <a class="item" th:href="@{/admin/users}">
+      <i class="bi bi-person-badge"></i><span>Users</span>
+    </a>
+    <a class="item" th:href="@{/admin/api-users}">
+      <i class="bi bi-key"></i><span>API Users</span>
+    </a>
+    <a class="item" th:href="@{/admin/audit}">
+      <i class="bi bi-activity"></i><span>API Requests</span>
+    </a>
+
+    <div class="group">System</div>
+    <a class="item" th:href="@{/admin/settings}">
+      <i class="bi bi-gear"></i><span>Settings</span>
+    </a>
+  </nav>
+</aside>

@@ -1,0 +1,153 @@
+/* DATUM – Blue & White System Theme
+   -------------------------------------------------- */
+:root{
+  --brand:#1a73e8;            /* primary blue */
+  --brand-600:#1967d2;
+  --brand-700:#1557b0;
+  --brand-800:#0f4595;
+
+  --accent:#22d3ee;           /* cyan accent */
+  --success:#22c55e;
+  --danger:#ef4444;
+  --warning:#f59e0b;
+
+  --bg:#0f172a;               /* page bg (slate) */
+  --ink:#0b1220;              /* text on white */
+  --muted:#6b7280;            /* secondary text */
+
+  --card:#ffffff;             /* white cards */
+  --surface: #f8fafc;         /* soft containers */
+
+  --radius-xl: 20px;
+  --radius-lg: 14px;
+  --radius-md: 10px;
+
+  --shadow-xl: 0 28px 100px rgba(2,6,23,.22);
+  --shadow-lg:  0 16px 48px rgba(2,6,23,.18);
+  --shadow-md:  0 10px 30px rgba(2,6,23,.14);
+}
+
+/* Animated deep blue backdrop with cyan blooms  */
+body.theme-bg{
+  min-height:100vh;
+  color:#e5e7eb;
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(26,115,232,.25), transparent 60%),
+    radial-gradient(800px 400px at 110% 20%, rgba(34,211,238,.18), transparent 60%),
+    radial-gradient(600px 300px at 50% 110%, rgba(26,115,232,.20), transparent 60%),
+    linear-gradient(180deg, #0f172a 0%, #0b1220 100%);
+  animation: bgFloat 18s ease-in-out infinite alternate;
+}
+@keyframes bgFloat{
+  0%{ background-position: 0 0, 0 0, 0 0, 0 0; }
+  100%{ background-position: 6vw -2vh, -8vw 1vh, 4vw 3vh, 0 0; }
+}
+
+/* NAVBAR */
+.app-navbar{
+  backdrop-filter: saturate(1.4) blur(10px);
+  background: linear-gradient(180deg, rgba(26,115,232,.95), rgba(21,87,176,.95));
+  box-shadow: var(--shadow-md);
+}
+.app-navbar .navbar-brand{
+  display:flex; align-items:center; gap:.65rem;
+  font-weight:800; letter-spacing:.2px; color:#fff !important;
+}
+.app-navbar .brand-badge{
+  width:36px; height:36px; border-radius:12px;
+  background:#fff; display:grid; place-items:center;
+  color:var(--brand-700); font-weight:800;
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,.6);
+}
+
+/* AUTH LAYOUT */
+.auth-card{
+  width:100%; max-width: 1000px; border:0; overflow:hidden;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  background: var(--card);
+  color: var(--ink);
+}
+.auth-split{ display:grid; grid-template-columns: 1.1fr 1fr; min-height:560px; }
+@media (max-width: 991.98px){ .auth-split{ display:block; } }
+
+.auth-hero{
+  min-height:100%; position:relative;
+  background: linear-gradient(135deg, var(--brand) 0%, var(--brand-700) 70%);
+  color:#fff;
+}
+.auth-hero:before, .auth-hero:after{
+  content:""; position:absolute; border-radius:50%;
+  background: rgba(255,255,255,.14); filter: blur(40px);
+}
+.auth-hero:before{ width:240px; height:240px; top:-70px; right:-70px; }
+.auth-hero:after { width:200px; height:200px; bottom:-60px; left:-40px; }
+.auth-hero .badge-soft{
+  display:inline-flex; align-items:center; gap:.5rem; font-weight:600;
+  background: rgba(255,255,255,.15); color:#fff; border-radius:999px; padding:.35rem .8rem;
+}
+
+/* Inputs & Buttons */
+.form-control:focus, .form-select:focus{
+  border-color: var(--brand);
+  box-shadow: 0 0 0 .2rem rgba(26,115,232,.15);
+}
+.btn-brand{
+  background: var(--brand); border:0; color:#fff;
+}
+.btn-brand:hover{ background: var(--brand-600); color:#fff; }
+.btn-outline-brand{ border-color: var(--brand); color: var(--brand); }
+.btn-outline-brand:hover{ background: var(--brand); color:#fff; }
+
+/* Ripple */
+.btn, .btn-brand, .btn-outline-brand{ position:relative; overflow:hidden; }
+.ripple { position:absolute; border-radius:50%; transform:scale(0);
+  animation:ripple 600ms linear; background:rgba(255,255,255,.35); pointer-events:none; }
+@keyframes ripple { to { transform:scale(4); opacity:0; } }
+
+/* Password strength meter */
+.strength-wrap{ margin-top:.5rem; }
+.strength-bars{ display:flex; gap:.25rem; height:6px; }
+.strength-bars span{
+  flex:1; background:#e5e7eb; border-radius:999px; transition:all .25s ease;
+}
+.strength-1 .s1{ background:#ef4444; }
+.strength-2 .s1, .strength-2 .s2{ background:#f59e0b; }
+.strength-3 .s1, .strength-3 .s2, .strength-3 .s3{ background:#22c55e; }
+.strength-4 .s1, .strength-4 .s2, .strength-4 .s3, .strength-4 .s4{ background:#16a34a; }
+.strength-label{ font-size:.85rem; color:var(--muted); }
+
+/* Caps lock badge */
+.caps-hint{
+  display:none; font-size:.75rem; color:#fff; background:rgba(239,68,68,.9);
+  padding:.2rem .5rem; border-radius:999px; margin-left:.5rem;
+}
+.caps-on{ display:inline-block; }
+
+/* Submit progress */
+.btn-progress[aria-busy="true"]{
+  pointer-events:none; opacity:.85;
+}
+.btn-progress[aria-busy="true"] .spinner{
+  display:inline-block; width:1rem; height:1rem; border:.18rem solid rgba(255,255,255,.35);
+  border-top-color:#fff; border-radius:50%; margin-right:.5rem; animation:spin .7s linear infinite;
+}
+@keyframes spin{ to{ transform:rotate(360deg); } }
+
+/* Shake animation for error */
+.shake{
+  animation:shake .32s cubic-bezier(.36,.07,.19,.97) both;
+}
+@keyframes shake{
+  10%, 90% { transform: translateX(-1px); }
+  20%, 80% { transform: translateX(2px); }
+  30%, 50%, 70% { transform: translateX(-4px); }
+  40%, 60% { transform: translateX(4px); }
+}
+
+/* Utility */
+.text-muted-ink{ color: var(--muted) !important; }
+.rounded-xl{ border-radius: var(--radius-xl) !important; }
+.rounded-lg{ border-radius: var(--radius-lg) !important; }
+.shadow-xl{ box-shadow: var(--shadow-xl) !important; }
+.fw-800{ font-weight:800 !important; }

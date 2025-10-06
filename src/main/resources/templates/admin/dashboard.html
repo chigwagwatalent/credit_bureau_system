@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard | DATUM</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Theme -->
+  <link rel="stylesheet" th:href="@{/css/theme.css}">
+  <style>
+    /* Sidebar */
+    .datum-layout{ display:grid; grid-template-columns: 260px 1fr; gap: 0; min-height: calc(100vh - 56px); }
+    .datum-sidebar{
+      background:#0b1220; color:#cbd5e1; padding:1rem; position:sticky; top:56px; height:calc(100vh - 56px);
+      border-right: 1px solid rgba(255,255,255,.06);
+    }
+    .sidebar-brand{ display:flex; align-items:center; gap:.6rem; margin-bottom:1rem; }
+    .sidebar-brand .badge{
+      width:36px; height:36px; border-radius:12px; display:grid; place-items:center; background:#1a73e8; color:#fff; font-weight:800;
+      box-shadow: 0 10px 24px rgba(26,115,232,.45);
+    }
+    .sidebar-brand .name{ color:#fff; font-weight:800; letter-spacing:.2px; }
+    .sidebar-nav .group{ font-size:.75rem; text-transform:uppercase; opacity:.6; margin:1rem .5rem .35rem; }
+    .sidebar-nav .item{
+      display:flex; align-items:center; gap:.65rem; padding:.55rem .65rem; border-radius:10px; color:#cbd5e1; text-decoration:none;
+      transition: background .2s ease, color .2s ease;
+    }
+    .sidebar-nav .item:hover{ background:rgba(255,255,255,.06); color:#fff; }
+    .sidebar-nav .item.active{ background:#1a73e8; color:#fff; }
+
+    /* Content wrapper */
+    .datum-content{ background:linear-gradient(180deg,#0f172a 0%, #0b1220 100%); padding:1.25rem; }
+
+    /* Cards */
+    .stat-card{
+      background:#fff; border:0; border-radius:16px; box-shadow: 0 16px 48px rgba(2,6,23,.18); overflow:hidden;
+    }
+    .stat-card .hd{ font-size:.9rem; color:#64748b; }
+    .stat-card .val{ font-size:1.9rem; font-weight:800; color:#0b1220; }
+
+    /* Table */
+    .tbl-card{ background:#fff; border-radius:16px; box-shadow: 0 16px 48px rgba(2,6,23,.18); }
+    .tbl-card .table th{ color:#64748b; font-weight:600; }
+  </style>
+</head>
+<body>
+  <!-- Top navbar -->
+  <div th:replace="~{common/navbar :: appNavbar}"></div>
+
+  <!-- Layout -->
+  <div class="datum-layout">
+    <!-- Sidebar -->
+    <div th:replace="~{common/sidebar :: appSidebar}"></div>
+
+    <!-- Main content -->
+    <div class="datum-content">
+      <div class="container-fluid">
+
+        <!-- Row: Stats -->
+        <div class="row g-3">
+          <div class="col-12 col-md-6 col-xl-3">
+            <div class="stat-card p-3">
+              <div class="hd">Users (total)</div>
+              <div class="val" th:text="${usersTotal}">0</div>
+              <div class="text-success small"><i class="bi bi-person-check"></i> Active: <span th:text="${usersActive}">0</span></div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-xl-3">
+            <div class="stat-card p-3">
+              <div class="hd">Admins</div>
+              <div class="val" th:text="${admins}">0</div>
+              <div class="text-muted small">Role breakdown shown below</div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-xl-3">
+            <div class="stat-card p-3">
+              <div class="hd">API Users</div>
+              <div class="val" th:text="${apiUsersTotal}">0</div>
+              <div class="text-success small"><i class="bi bi-check2-circle"></i> Active: <span th:text="${apiUsersActive}">0</span></div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-xl-3">
+            <div class="stat-card p-3">
+              <div class="hd">Civilians</div>
+              <div class="val" th:text="${civiliansTotal}">0</div>
+              <div class="text-primary small"><i class="bi bi-cash-coin"></i> Avg Income:
+                <span th:text="${#numbers.formatDecimal(avgIncome, 1, 'COMMA', 2, 'POINT')}">0.00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row: Charts -->
+        <div class="row g-3 mt-1">
+          <div class="col-12 col-xl-7">
+            <div class="stat-card p-3">
+              <div class="d-flex align-items-center justify-content-between">
+                <div class="hd">API Requests (last 24h)</div>
+              </div>
+              <canvas id="trafficChart" height="120"></canvas>
+            </div>
+          </div>
+          <div class="col-12 col-xl-5">
+            <div class="stat-card p-3">
+              <div class="hd">User Roles</div>
+              <canvas id="rolesChart" height="120"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row: Latest API Requests -->
+        <div class="row g-3 mt-1">
+          <div class="col-12">
+            <div class="tbl-card p-3">
+              <div class="d-flex align-items-center justify-content-between">
+                <h6 class="mb-0 fw-bold">Latest API Requests</h6>
+                <a class="btn btn-sm btn-outline-primary" th:href="@{/admin/audit}">
+                  <i class="bi bi-list-ul me-1"></i> View all
+                </a>
+              </div>
+              <div class="table-responsive mt-3">
+                <table class="table align-middle">
+                  <thead>
+                    <tr>
+                      <th>When</th>
+                      <th>User</th>
+                      <th>Path</th>
+                      <th>Method</th>
+                      <th>Client IP</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr th:each="r : ${latestRequests}">
+                      <td th:text="${#temporals.format(r.createdAt, 'yyyy-MM-dd HH:mm')}">—</td>
+                      <td th:text="${r.username}">—</td>
+                      <td th:text="${r.path}">/v1/api/...</td>
+                      <td><span class="badge text-bg-light" th:text="${r.httpMethod}">GET</span></td>
+                      <td th:text="${r.clientIp}">0.0.0.0</td>
+                    </tr>
+                    <tr th:if="${#lists.isEmpty(latestRequests)}"><td colspan="5" class="text-center text-muted">No requests yet</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- Your requested include line -->
+      <div th:replace="~{common/footer.html}"></div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+  <script th:inline="javascript">
+    // Data from model
+    const trafficLabels = /*[[${trafficLabels}]]*/ [];
+    const trafficValues = /*[[${trafficValues}]]*/ [];
+    const roleCountsObj = /*[[${roleCounts}]]*/ {};
+    const roleLabels = Object.keys(roleCountsObj);
+    const roleValues = Object.values(roleCountsObj);
+
+    // Traffic line
+    const tctx = document.getElementById('trafficChart');
+    new Chart(tctx, {
+      type: 'line',
+      data: {
+        labels: trafficLabels,
+        datasets: [{
+          label: 'Requests',
+          data: trafficValues,
+          tension: .35,
+          fill: true
+        }]
+      },
+      options: {
+        plugins: { legend: { display:false } },
+        scales: {
+          x: { grid: { display:false } },
+          y: { beginAtZero:true, ticks: { precision:0 } }
+        }
+      }
+    });
+
+    // Roles doughnut
+    const rctx = document.getElementById('rolesChart');
+    new Chart(rctx, {
+      type: 'doughnut',
+      data: {
+        labels: roleLabels,
+        datasets: [{ data: roleValues }]
+      },
+      options: {
+        plugins: { legend: { position:'bottom' } },
+        cutout: '65%'
+      }
+    });
+  </script>
+</body>
+</html>

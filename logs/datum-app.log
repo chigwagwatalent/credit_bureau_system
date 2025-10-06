@@ -1,0 +1,433 @@
+2025-10-06T15:27:05.888+02:00  INFO 44864 --- [DATUM] [restartedMain] com.cbs.system.SystemApplication         : Starting SystemApplication using Java 17.0.12 with PID 44864 (C:\Users\talen\OneDrive\Desktop\JAVA PROJECTS\credit_bureau_system\build\classes\java\main started by talen in C:\Users\talen\OneDrive\Desktop\JAVA PROJECTS\credit_bureau_system)
+2025-10-06T15:27:05.899+02:00  INFO 44864 --- [DATUM] [restartedMain] com.cbs.system.SystemApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-10-06T15:27:05.992+02:00  INFO 44864 --- [DATUM] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-10-06T15:27:05.994+02:00  INFO 44864 --- [DATUM] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-10-06T15:27:08.066+02:00  INFO 44864 --- [DATUM] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-10-06T15:27:08.069+02:00  INFO 44864 --- [DATUM] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2025-10-06T15:27:08.140+02:00  INFO 44864 --- [DATUM] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.cbs.system.repository.ApiRequestAuditRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-10-06T15:27:08.144+02:00  INFO 44864 --- [DATUM] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.cbs.system.repository.APIUsersRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-10-06T15:27:08.147+02:00  INFO 44864 --- [DATUM] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.cbs.system.repository.CivilianDataRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-10-06T15:27:08.151+02:00  INFO 44864 --- [DATUM] [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.cbs.system.repository.UsersRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-10-06T15:27:08.152+02:00  INFO 44864 --- [DATUM] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 71 ms. Found 0 JDBC repository interfaces.
+2025-10-06T15:27:08.168+02:00  INFO 44864 --- [DATUM] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-10-06T15:27:08.169+02:00  INFO 44864 --- [DATUM] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-06T15:27:08.449+02:00  INFO 44864 --- [DATUM] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 271 ms. Found 4 JPA repository interfaces.
+2025-10-06T15:27:08.667+02:00  WARN 44864 --- [DATUM] [restartedMain] .s.s.b.a.TimefoldSolverAutoConfiguration : Skipping Timefold loading because there are no @PlanningSolution  or @PlanningEntity annotated classes.
+Maybe your annotated classes are not in a subpackage of your @SpringBootApplication annotated class's package.
+Maybe move your planning solution and entity classes to your application class's (sub)package (or use @EntityScan).
+2025-10-06T15:27:10.232+02:00  INFO 44864 --- [DATUM] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-10-06T15:27:10.271+02:00  INFO 44864 --- [DATUM] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-06T15:27:10.271+02:00  INFO 44864 --- [DATUM] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.44]
+2025-10-06T15:27:10.369+02:00  INFO 44864 --- [DATUM] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-06T15:27:10.369+02:00  INFO 44864 --- [DATUM] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4374 ms
+2025-10-06T15:27:10.557+02:00 DEBUG 44864 --- [DATUM] [restartedMain] o.s.w.f.ServerHttpObservationFilter      : Filter 'webMvcObservationFilter' configured for use
+2025-10-06T15:27:10.914+02:00  INFO 44864 --- [DATUM] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-06T15:27:11.243+02:00  INFO 44864 --- [DATUM] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1d9ab539
+2025-10-06T15:27:11.248+02:00  INFO 44864 --- [DATUM] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-10-06T15:27:11.357+02:00  INFO 44864 --- [DATUM] [restartedMain] org.flywaydb.core.FlywayExecutor         : Database: jdbc:mysql://localhost:3306/credit_bureau_db?useSSL=false&serverTimezone=UTC (MySQL 8.0)
+2025-10-06T15:27:11.545+02:00  INFO 44864 --- [DATUM] [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 3 migrations (execution time 00:00.075s)
+2025-10-06T15:27:11.571+02:00  INFO 44864 --- [DATUM] [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema `credit_bureau_db`: 2
+2025-10-06T15:27:11.578+02:00  INFO 44864 --- [DATUM] [restartedMain] o.f.core.internal.command.DbMigrate      : Schema `credit_bureau_db` is up to date. No migration necessary.
+2025-10-06T15:27:11.716+02:00  INFO 44864 --- [DATUM] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-06T15:27:11.854+02:00  INFO 44864 --- [DATUM] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.26.Final
+2025-10-06T15:27:11.924+02:00  INFO 44864 --- [DATUM] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-10-06T15:27:12.530+02:00  INFO 44864 --- [DATUM] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-06T15:27:12.658+02:00  WARN 44864 --- [DATUM] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-06T15:27:12.660+02:00  WARN 44864 --- [DATUM] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-10-06T15:27:12.687+02:00  INFO 44864 --- [DATUM] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-06T15:27:12.710+02:00  WARN 44864 --- [DATUM] [restartedMain] org.hibernate.orm.incubating             : HHH90006001: Encountered incubating setting [hibernate.type.preferred_uuid_jdbc_type].  See javadoc on corresponding `org.hibernate.cfg.AvailableSettings` constant for details.
+2025-10-06T15:27:13.089+02:00  WARN 44864 --- [DATUM] [restartedMain] org.hibernate.orm.incubating             : HHH90006001: Encountered incubating setting [hibernate.type.preferred_uuid_jdbc_type].  See javadoc on corresponding `org.hibernate.cfg.AvailableSettings` constant for details.
+2025-10-06T15:27:14.363+02:00  INFO 44864 --- [DATUM] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-06T15:27:14.433+02:00  INFO 44864 --- [DATUM] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-06T15:27:14.972+02:00  INFO 44864 --- [DATUM] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-10-06T15:27:16.493+02:00 DEBUG 44864 --- [DATUM] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 7 mappings in 'requestMappingHandlerMapping'
+2025-10-06T15:27:16.616+02:00 DEBUG 44864 --- [DATUM] [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2025-10-06T15:27:16.839+02:00  INFO 44864 --- [DATUM] [restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2025-10-06T15:27:16.840+02:00  WARN 44864 --- [DATUM] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2025-10-06T15:27:17.046+02:00 DEBUG 44864 --- [DATUM] [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Or [Mvc [pattern='/**']] with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, CorsFilter, CsrfFilter, LogoutFilter, ApiHeadersAuthFilter, UsernamePasswordAuthenticationFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2025-10-06T15:27:17.161+02:00 DEBUG 44864 --- [DATUM] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-10-06T15:27:17.291+02:00 DEBUG 44864 --- [DATUM] [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-10-06T15:27:17.742+02:00  INFO 44864 --- [DATUM] [restartedMain] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2025-10-06T15:27:17.815+02:00  INFO 44864 --- [DATUM] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-10-06T15:27:18.116+02:00  INFO 44864 --- [DATUM] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-10-06T15:27:18.253+02:00  INFO 44864 --- [DATUM] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-10-06T15:27:18.254+02:00  INFO 44864 --- [DATUM] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-06T15:27:18.254+02:00  INFO 44864 --- [DATUM] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.44]
+2025-10-06T15:27:18.300+02:00  INFO 44864 --- [DATUM] [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-10-06T15:27:18.300+02:00  INFO 44864 --- [DATUM] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 178 ms
+2025-10-06T15:27:18.318+02:00  INFO 44864 --- [DATUM] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 6 endpoints beneath base path '/actuator'
+2025-10-06T15:27:18.344+02:00 DEBUG 44864 --- [DATUM] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 1 mappings in 'requestMappingHandlerMapping'
+2025-10-06T15:27:18.352+02:00 DEBUG 44864 --- [DATUM] [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2025-10-06T15:27:18.363+02:00 DEBUG 44864 --- [DATUM] [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-10-06T15:27:18.380+02:00  INFO 44864 --- [DATUM] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2025-10-06T15:27:18.403+02:00  INFO 44864 --- [DATUM] [restartedMain] com.cbs.system.SystemApplication         : Started SystemApplication in 13.375 seconds (process running for 16.226)
+2025-10-06T15:28:21.442+02:00  INFO 44864 --- [DATUM] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-06T15:28:21.442+02:00  INFO 44864 --- [DATUM] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-10-06T15:28:21.443+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2025-10-06T15:28:21.444+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2025-10-06T15:28:21.444+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2025-10-06T15:28:21.447+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@6ba8619a
+2025-10-06T15:28:21.448+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@3632bc7a
+2025-10-06T15:28:21.449+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2025-10-06T15:28:21.449+02:00  INFO 44864 --- [DATUM] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2025-10-06T15:28:21.529+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /
+2025-10-06T15:28:21.574+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-06T15:28:21.575+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-1] o.s.s.w.session.SessionManagementFilter  : Request requested invalid session id 6B95839489376CAB95718806C1CA34E0
+2025-10-06T15:28:21.759+02:00  WARN 44864 --- [DATUM] [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [132] milliseconds.
+2025-10-06T15:28:21.766+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-1] o.s.s.w.s.HttpSessionRequestCache        : Saved request http://localhost:8080/?continue to session
+2025-10-06T15:28:21.767+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-1] o.s.s.web.DefaultRedirectStrategy        : Redirecting to http://localhost:8080/login
+2025-10-06T15:28:21.791+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing GET /login
+2025-10-06T15:28:21.795+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-2] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-06T15:28:21.801+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured GET /login
+2025-10-06T15:28:21.808+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/login", parameters={}
+2025-10-06T15:28:21.814+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cbs.system.controller.AuthController#loginPage(Model, String, String, String)
+2025-10-06T15:28:21.892+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-2] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+2025-10-06T15:28:22.725+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-06T15:28:22.801+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /css/theme.css
+2025-10-06T15:28:22.802+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing GET /js/theme.js
+2025-10-06T15:28:22.806+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-4] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-06T15:28:22.808+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-3] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-06T15:28:22.809+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Secured GET /js/theme.js
+2025-10-06T15:28:22.810+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/js/theme.js", parameters={}
+2025-10-06T15:28:22.812+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /css/theme.css
+2025-10-06T15:28:22.813+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/css/theme.css", parameters={}
+2025-10-06T15:28:22.814+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-10-06T15:28:22.814+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-10-06T15:28:22.848+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-06T15:28:22.848+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-06T15:28:33.086+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing GET /favicon.ico
+2025-10-06T15:28:33.089+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-5] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-06T15:28:33.091+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-5] o.s.s.web.DefaultRedirectStrategy        : Redirecting to http://localhost:8080/login
+2025-10-06T15:28:33.114+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing GET /login
+2025-10-06T15:28:33.116+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-6] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-06T15:28:33.118+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Secured GET /login
+2025-10-06T15:28:33.119+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/login", parameters={}
+2025-10-06T15:28:33.120+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cbs.system.controller.AuthController#loginPage(Model, String, String, String)
+2025-10-06T15:28:33.126+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-6] o.s.w.s.v.ContentNegotiatingViewResolver : Selected '*/*' given [image/avif, image/webp, image/apng, image/svg+xml, image/*, */*;q=0.8]
+2025-10-06T15:28:33.154+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-06T15:28:36.271+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /register
+2025-10-06T15:28:36.273+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-9] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-06T15:28:36.279+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Secured GET /register
+2025-10-06T15:28:36.280+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/register", parameters={}
+2025-10-06T15:28:36.281+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cbs.system.controller.AuthController#registerPage(Model)
+2025-10-06T15:28:36.289+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-9] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+2025-10-06T15:28:36.404+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-06T15:28:37.025+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing GET /favicon.ico
+2025-10-06T15:28:37.027+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-8] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-06T15:28:37.029+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-8] o.s.s.web.DefaultRedirectStrategy        : Redirecting to http://localhost:8080/login
+2025-10-06T15:28:37.044+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Securing GET /login
+2025-10-06T15:28:37.046+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-7] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-06T15:28:37.047+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Secured GET /login
+2025-10-06T15:28:37.048+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/login", parameters={}
+2025-10-06T15:28:37.048+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cbs.system.controller.AuthController#loginPage(Model, String, String, String)
+2025-10-06T15:28:37.050+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-7] o.s.w.s.v.ContentNegotiatingViewResolver : Selected '*/*' given [image/avif, image/webp, image/apng, image/svg+xml, image/*, */*;q=0.8]
+2025-10-06T15:28:37.072+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-06T15:28:40.924+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing GET /login
+2025-10-06T15:28:40.927+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-10] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-06T15:28:40.929+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Secured GET /login
+2025-10-06T15:28:40.930+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/login", parameters={}
+2025-10-06T15:28:40.931+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cbs.system.controller.AuthController#loginPage(Model, String, String, String)
+2025-10-06T15:28:40.933+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-10] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+2025-10-06T15:28:40.956+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-06T15:28:40.990+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing GET /js/theme.js
+2025-10-06T15:28:40.993+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-2] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-06T15:28:40.998+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured GET /js/theme.js
+2025-10-06T15:28:40.999+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/js/theme.js", parameters={}
+2025-10-06T15:28:40.999+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /css/theme.css
+2025-10-06T15:28:41.003+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-10-06T15:28:41.004+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-06T15:28:41.015+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-06T15:28:41.014+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /css/theme.css
+2025-10-06T15:28:41.016+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/css/theme.css", parameters={}
+2025-10-06T15:28:41.020+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-10-06T15:28:41.037+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-06T15:28:41.403+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing GET /favicon.ico
+2025-10-06T15:28:41.407+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-4] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-06T15:28:41.410+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-4] o.s.s.web.DefaultRedirectStrategy        : Redirecting to http://localhost:8080/login
+2025-10-06T15:28:41.420+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /login
+2025-10-06T15:28:41.422+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-3] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-06T15:28:41.423+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /login
+2025-10-06T15:28:41.424+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/login", parameters={}
+2025-10-06T15:28:41.425+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cbs.system.controller.AuthController#loginPage(Model, String, String, String)
+2025-10-06T15:28:41.429+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-3] o.s.w.s.v.ContentNegotiatingViewResolver : Selected '*/*' given [image/avif, image/webp, image/apng, image/svg+xml, image/*, */*;q=0.8]
+2025-10-06T15:28:41.459+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-06T15:29:18.046+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing GET /register
+2025-10-06T15:29:18.048+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-5] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-06T15:29:18.050+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Secured GET /register
+2025-10-06T15:29:18.051+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/register", parameters={}
+2025-10-06T15:29:18.052+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cbs.system.controller.AuthController#registerPage(Model)
+2025-10-06T15:29:18.054+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-5] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+2025-10-06T15:29:18.076+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-06T15:29:18.579+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing GET /favicon.ico
+2025-10-06T15:29:18.579+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-6] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-06T15:29:18.581+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-6] o.s.s.web.DefaultRedirectStrategy        : Redirecting to http://localhost:8080/login
+2025-10-06T15:29:18.593+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /login
+2025-10-06T15:29:18.594+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-9] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-06T15:29:18.594+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Secured GET /login
+2025-10-06T15:29:18.596+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/login", parameters={}
+2025-10-06T15:29:18.596+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cbs.system.controller.AuthController#loginPage(Model, String, String, String)
+2025-10-06T15:29:18.597+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-9] o.s.w.s.v.ContentNegotiatingViewResolver : Selected '*/*' given [image/avif, image/webp, image/apng, image/svg+xml, image/*, */*;q=0.8]
+2025-10-06T15:29:18.604+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-06T15:29:34.943+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing POST /register
+2025-10-06T15:29:34.992+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-8] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-06T15:29:34.993+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Secured POST /register
+2025-10-06T15:29:34.994+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : POST "/register", parameters={masked}
+2025-10-06T15:29:34.994+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cbs.system.controller.AuthController#register(RegisterForm, BindingResult, Model)
+2025-10-06T15:29:35.430+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        u1_0.id 
+    from
+        users u1_0 
+    where
+        u1_0.username=? 
+    limit
+        ?
+2025-10-06T15:29:35.435+02:00 TRACE 44864 --- [DATUM] [http-nio-8080-exec-8] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [talentchigwagwa1@gmail.com]
+2025-10-06T15:29:35.435+02:00 TRACE 44864 --- [DATUM] [http-nio-8080-exec-8] org.hibernate.orm.jdbc.bind              : binding parameter (2:INTEGER) <- [1]
+2025-10-06T15:29:35.496+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        u1_0.id 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+    limit
+        ?
+2025-10-06T15:29:35.497+02:00 TRACE 44864 --- [DATUM] [http-nio-8080-exec-8] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [talentchigwagwa1@gmail.com]
+2025-10-06T15:29:35.498+02:00 TRACE 44864 --- [DATUM] [http-nio-8080-exec-8] org.hibernate.orm.jdbc.bind              : binding parameter (2:INTEGER) <- [1]
+2025-10-06T15:29:35.506+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-8] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+2025-10-06T15:29:35.523+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-06T15:29:35.968+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Securing GET /favicon.ico
+2025-10-06T15:29:35.969+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-7] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-06T15:29:35.970+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-7] o.s.s.web.DefaultRedirectStrategy        : Redirecting to http://localhost:8080/login
+2025-10-06T15:29:35.985+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing GET /login
+2025-10-06T15:29:35.986+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-10] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-06T15:29:35.987+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Secured GET /login
+2025-10-06T15:29:35.987+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/login", parameters={}
+2025-10-06T15:29:35.988+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cbs.system.controller.AuthController#loginPage(Model, String, String, String)
+2025-10-06T15:29:35.990+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-10] o.s.w.s.v.ContentNegotiatingViewResolver : Selected '*/*' given [image/avif, image/webp, image/apng, image/svg+xml, image/*, */*;q=0.8]
+2025-10-06T15:29:36.004+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-06T15:29:42.768+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /login
+2025-10-06T15:29:42.770+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-06T15:29:42.772+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /login
+2025-10-06T15:29:42.773+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/login", parameters={}
+2025-10-06T15:29:42.774+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cbs.system.controller.AuthController#loginPage(Model, String, String, String)
+2025-10-06T15:29:42.779+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-1] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+2025-10-06T15:29:42.792+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-06T15:29:42.833+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing GET /css/theme.css
+2025-10-06T15:29:42.835+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /js/theme.js
+2025-10-06T15:29:42.837+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-4] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-06T15:29:42.840+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-3] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-06T15:29:42.841+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Secured GET /css/theme.css
+2025-10-06T15:29:42.844+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /js/theme.js
+2025-10-06T15:29:42.845+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/js/theme.js", parameters={}
+2025-10-06T15:29:42.845+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/css/theme.css", parameters={}
+2025-10-06T15:29:42.847+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-10-06T15:29:42.850+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-10-06T15:29:42.868+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-06T15:29:42.876+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-06T15:29:43.311+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing GET /favicon.ico
+2025-10-06T15:29:43.312+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-5] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-06T15:29:43.315+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-5] o.s.s.web.DefaultRedirectStrategy        : Redirecting to http://localhost:8080/login
+2025-10-06T15:29:43.344+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing GET /login
+2025-10-06T15:29:43.346+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-6] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-06T15:29:43.348+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Secured GET /login
+2025-10-06T15:29:43.348+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/login", parameters={}
+2025-10-06T15:29:43.349+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cbs.system.controller.AuthController#loginPage(Model, String, String, String)
+2025-10-06T15:29:43.350+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-6] o.s.w.s.v.ContentNegotiatingViewResolver : Selected '*/*' given [image/avif, image/webp, image/apng, image/svg+xml, image/*, */*;q=0.8]
+2025-10-06T15:29:43.372+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-06T15:29:50.786+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing POST /login
+2025-10-06T15:29:51.116+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.active,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2025-10-06T15:29:51.120+02:00 TRACE 44864 --- [DATUM] [http-nio-8080-exec-9] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [talentchigwagwa1@gmail.com]
+2025-10-06T15:29:51.634+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-9] o.s.s.a.dao.DaoAuthenticationProvider    : Failed to find user 'talentchigwagwa1@gmail.com'
+2025-10-06T15:29:51.636+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-9] o.s.s.authentication.ProviderManager     : Authentication failed with provider DaoAuthenticationProvider since Bad credentials
+2025-10-06T15:29:51.640+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-9] o.s.s.authentication.ProviderManager     : Denying authentication since all attempted providers failed
+2025-10-06T15:29:51.645+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-9] o.s.s.web.DefaultRedirectStrategy        : Redirecting to /login?error=true
+2025-10-06T15:29:51.677+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing GET /login?error=true
+2025-10-06T15:29:51.688+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-8] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-06T15:29:51.693+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Secured GET /login?error=true
+2025-10-06T15:29:51.694+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/login?error=true", parameters={masked}
+2025-10-06T15:29:51.694+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cbs.system.controller.AuthController#loginPage(Model, String, String, String)
+2025-10-06T15:29:51.697+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-8] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+2025-10-06T15:29:51.719+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-06T15:29:51.799+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing GET /js/theme.js
+2025-10-06T15:29:51.804+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-10] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-06T15:29:51.799+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Securing GET /css/theme.css
+2025-10-06T15:29:51.808+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-7] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-06T15:29:51.810+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Secured GET /js/theme.js
+2025-10-06T15:29:51.811+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/js/theme.js", parameters={}
+2025-10-06T15:29:51.813+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Secured GET /css/theme.css
+2025-10-06T15:29:51.813+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/css/theme.css", parameters={}
+2025-10-06T15:29:51.816+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-10] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-10-06T15:29:51.818+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-7] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-10-06T15:29:51.833+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-06T15:29:51.835+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-06T15:29:52.246+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing GET /favicon.ico
+2025-10-06T15:29:52.248+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-2] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-06T15:29:52.253+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-2] o.s.s.web.DefaultRedirectStrategy        : Redirecting to http://localhost:8080/login
+2025-10-06T15:29:52.272+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /login
+2025-10-06T15:29:52.273+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-06T15:29:52.274+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /login
+2025-10-06T15:29:52.275+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/login", parameters={}
+2025-10-06T15:29:52.277+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cbs.system.controller.AuthController#loginPage(Model, String, String, String)
+2025-10-06T15:29:52.282+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-1] o.s.w.s.v.ContentNegotiatingViewResolver : Selected '*/*' given [image/avif, image/webp, image/apng, image/svg+xml, image/*, */*;q=0.8]
+2025-10-06T15:29:52.304+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-06T15:30:03.434+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing POST /login
+2025-10-06T15:30:03.441+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.active,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2025-10-06T15:30:03.445+02:00 TRACE 44864 --- [DATUM] [http-nio-8080-exec-4] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [talentchigwagwa@gmail.com]
+2025-10-06T15:30:03.771+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-4] o.s.s.a.dao.DaoAuthenticationProvider    : Failed to find user 'talentchigwagwa@gmail.com'
+2025-10-06T15:30:03.771+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-4] o.s.s.authentication.ProviderManager     : Authentication failed with provider DaoAuthenticationProvider since Bad credentials
+2025-10-06T15:30:03.773+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-4] o.s.s.authentication.ProviderManager     : Denying authentication since all attempted providers failed
+2025-10-06T15:30:03.775+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-4] o.s.s.web.DefaultRedirectStrategy        : Redirecting to /login?error=true
+2025-10-06T15:30:03.798+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /login?error=true
+2025-10-06T15:30:03.808+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-3] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-06T15:30:03.820+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /login?error=true
+2025-10-06T15:30:03.828+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/login?error=true", parameters={masked}
+2025-10-06T15:30:03.830+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cbs.system.controller.AuthController#loginPage(Model, String, String, String)
+2025-10-06T15:30:03.835+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-3] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+2025-10-06T15:30:03.849+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-06T15:30:03.909+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing GET /js/theme.js
+2025-10-06T15:30:03.914+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing GET /css/theme.css
+2025-10-06T15:30:03.915+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-5] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-06T15:30:03.915+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-6] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-06T15:30:03.920+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Secured GET /js/theme.js
+2025-10-06T15:30:03.921+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/js/theme.js", parameters={}
+2025-10-06T15:30:03.921+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-10-06T15:30:03.926+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Secured GET /css/theme.css
+2025-10-06T15:30:03.934+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/css/theme.css", parameters={}
+2025-10-06T15:30:03.938+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-5] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-10-06T15:30:03.943+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-06T15:30:03.951+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-06T15:30:04.381+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /favicon.ico
+2025-10-06T15:30:04.384+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-9] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-06T15:30:04.389+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-9] o.s.s.web.DefaultRedirectStrategy        : Redirecting to http://localhost:8080/login
+2025-10-06T15:30:04.399+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing GET /login
+2025-10-06T15:30:04.400+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-8] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-06T15:30:04.401+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Secured GET /login
+2025-10-06T15:30:04.401+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/login", parameters={}
+2025-10-06T15:30:04.401+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cbs.system.controller.AuthController#loginPage(Model, String, String, String)
+2025-10-06T15:30:04.404+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-8] o.s.w.s.v.ContentNegotiatingViewResolver : Selected '*/*' given [image/avif, image/webp, image/apng, image/svg+xml, image/*, */*;q=0.8]
+2025-10-06T15:30:04.420+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-06T15:30:14.982+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing POST /login
+2025-10-06T15:30:14.988+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.active,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2025-10-06T15:30:14.990+02:00 TRACE 44864 --- [DATUM] [http-nio-8080-exec-10] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [admin]
+2025-10-06T15:30:15.376+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-10] o.s.s.a.dao.DaoAuthenticationProvider    : Failed to authenticate since password does not match stored value
+2025-10-06T15:30:15.377+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-10] o.s.s.authentication.ProviderManager     : Authentication failed with provider DaoAuthenticationProvider since Bad credentials
+2025-10-06T15:30:15.378+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-10] o.s.s.authentication.ProviderManager     : Denying authentication since all attempted providers failed
+2025-10-06T15:30:15.379+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-10] o.s.s.web.DefaultRedirectStrategy        : Redirecting to /login?error=true
+2025-10-06T15:30:15.402+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Securing GET /login?error=true
+2025-10-06T15:30:15.405+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-7] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-06T15:30:15.410+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Secured GET /login?error=true
+2025-10-06T15:30:15.411+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/login?error=true", parameters={masked}
+2025-10-06T15:30:15.412+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cbs.system.controller.AuthController#loginPage(Model, String, String, String)
+2025-10-06T15:30:15.416+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-7] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+2025-10-06T15:30:15.446+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-06T15:30:15.513+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing GET /css/theme.css
+2025-10-06T15:30:15.513+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /js/theme.js
+2025-10-06T15:30:15.514+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-2] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-06T15:30:15.514+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-06T15:30:15.521+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured GET /css/theme.css
+2025-10-06T15:30:15.522+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /js/theme.js
+2025-10-06T15:30:15.522+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/js/theme.js", parameters={}
+2025-10-06T15:30:15.530+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/css/theme.css", parameters={}
+2025-10-06T15:30:15.532+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-10-06T15:30:15.538+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-10-06T15:30:15.550+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-06T15:30:15.550+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-06T15:30:16.019+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Securing GET /favicon.ico
+2025-10-06T15:30:16.021+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-4] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-06T15:30:16.023+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-4] o.s.s.web.DefaultRedirectStrategy        : Redirecting to http://localhost:8080/login
+2025-10-06T15:30:16.033+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /login
+2025-10-06T15:30:16.034+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-3] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-06T15:30:16.035+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /login
+2025-10-06T15:30:16.035+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/login", parameters={}
+2025-10-06T15:30:16.036+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cbs.system.controller.AuthController#loginPage(Model, String, String, String)
+2025-10-06T15:30:16.038+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-3] o.s.w.s.v.ContentNegotiatingViewResolver : Selected '*/*' given [image/avif, image/webp, image/apng, image/svg+xml, image/*, */*;q=0.8]
+2025-10-06T15:30:16.064+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-06T15:30:23.713+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-6] o.s.security.web.FilterChainProxy        : Securing POST /login
+2025-10-06T15:30:23.719+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.active,
+        u1_0.email,
+        u1_0.password,
+        u1_0.role,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2025-10-06T15:30:23.720+02:00 TRACE 44864 --- [DATUM] [http-nio-8080-exec-6] org.hibernate.orm.jdbc.bind              : binding parameter (1:VARCHAR) <- [talentchigwagwa@gmail.com]
+2025-10-06T15:30:24.137+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-6] o.s.s.a.dao.DaoAuthenticationProvider    : Failed to find user 'talentchigwagwa@gmail.com'
+2025-10-06T15:30:24.138+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-6] o.s.s.authentication.ProviderManager     : Authentication failed with provider DaoAuthenticationProvider since Bad credentials
+2025-10-06T15:30:24.139+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-6] o.s.s.authentication.ProviderManager     : Denying authentication since all attempted providers failed
+2025-10-06T15:30:24.143+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-6] o.s.s.web.DefaultRedirectStrategy        : Redirecting to /login?error=true
+2025-10-06T15:30:24.169+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Securing GET /login?error=true
+2025-10-06T15:30:24.171+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-5] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-06T15:30:24.174+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-5] o.s.security.web.FilterChainProxy        : Secured GET /login?error=true
+2025-10-06T15:30:24.176+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/login?error=true", parameters={masked}
+2025-10-06T15:30:24.178+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cbs.system.controller.AuthController#loginPage(Model, String, String, String)
+2025-10-06T15:30:24.185+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-5] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+2025-10-06T15:30:24.219+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-06T15:30:24.298+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Securing GET /js/theme.js
+2025-10-06T15:30:24.303+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /css/theme.css
+2025-10-06T15:30:24.309+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-8] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-06T15:30:24.309+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-9] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-06T15:30:24.310+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-8] o.s.security.web.FilterChainProxy        : Secured GET /js/theme.js
+2025-10-06T15:30:24.310+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/js/theme.js", parameters={}
+2025-10-06T15:30:24.310+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-9] o.s.security.web.FilterChainProxy        : Secured GET /css/theme.css
+2025-10-06T15:30:24.312+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/css/theme.css", parameters={}
+2025-10-06T15:30:24.313+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-9] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-10-06T15:30:24.318+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-8] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-10-06T15:30:24.333+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-06T15:30:24.333+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2025-10-06T15:30:24.775+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-10] o.s.security.web.FilterChainProxy        : Securing GET /favicon.ico
+2025-10-06T15:30:24.776+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-10] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-06T15:30:24.778+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-10] o.s.s.web.DefaultRedirectStrategy        : Redirecting to http://localhost:8080/login
+2025-10-06T15:30:24.828+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Securing GET /login
+2025-10-06T15:30:24.832+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-7] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-10-06T15:30:24.835+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-7] o.s.security.web.FilterChainProxy        : Secured GET /login
+2025-10-06T15:30:24.836+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/login", parameters={}
+2025-10-06T15:30:24.837+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.cbs.system.controller.AuthController#loginPage(Model, String, String, String)
+2025-10-06T15:30:24.841+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-7] o.s.w.s.v.ContentNegotiatingViewResolver : Selected '*/*' given [image/avif, image/webp, image/apng, image/svg+xml, image/*, */*;q=0.8]
+2025-10-06T15:30:24.858+02:00 DEBUG 44864 --- [DATUM] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
