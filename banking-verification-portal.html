@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <title>BANKING VERIFICATION PORTAL</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    :root{
+      /* Lighter, modern dark */
+      --bg1:#0d1117; --bg2:#0f1522; --brand:#2e7dfb; --ink:#cbd5e1; --ink-weak:#9fb0c9;
+      --panel:#0f172a; --panel-alt:#101826; --border:rgba(255,255,255,.08);
+      --ok:#28c76f; --bad:#ff4d4f; --muted:#8b98b1;
+    }
+    body{ background:linear-gradient(180deg,var(--bg2),var(--bg1)); }
+    .hero {
+      background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));
+      border-bottom:1px solid var(--border);
+    }
+    .brand-badge{
+      width:40px;height:40px;border-radius:12px;display:grid;place-items:center;
+      background:var(--brand);color:#fff;font-weight:800; box-shadow: 0 10px 28px rgba(46,125,251,.45);
+    }
+    .card-x{
+      background:rgba(255,255,255,.03);
+      border:1px solid var(--border);
+      border-radius:14px;
+    }
+    .glass{
+      background:rgba(255,255,255,.03);
+      border:1px solid var(--border);
+      border-radius:12px;
+    }
+    .form-label{ color:var(--ink-weak); font-weight:600; }
+    .btn-brand{ background:var(--brand); color:#fff; border:0; }
+    .btn-brand:hover{ filter:brightness(1.06); }
+    .btn-ghost{ background:transparent; border:1px solid var(--border); color:#dce7ff; }
+    .kbd{ padding:.15rem .45rem; border:1px solid rgba(255,255,255,.2); border-bottom-width:2px; border-radius:.45rem; font-size:.8rem }
+    .spin{ width:1.05rem;height:1.05rem;border:.18rem solid rgba(255,255,255,.25); border-top-color:#fff; border-radius:50%; animation:rot 1s linear infinite; display:inline-block }
+    @keyframes rot{ to{ transform:rotate(360deg) } }
+
+    /* Lightweight response panel with subtle syntax highlight */
+    pre.json{
+      background:var(--panel);
+      color:#e6f0ff;
+      border-radius:12px;
+      padding:1rem .9rem;
+      border:1px solid var(--border);
+      max-height:360px; overflow:auto; font-size:.92rem; line-height:1.35;
+      white-space:pre-wrap; word-wrap:break-word;
+    }
+    .json .k{ color:#9cdcfe }     /* key   */
+    .json .s{ color:#ce9178 }     /* string*/
+    .json .n{ color:#b5cea8 }     /* number*/
+    .json .b{ color:#4fd1c5 }     /* bool  */
+    .json .l{ color:#8ab4f8 }     /* null  */
+
+    .tagline { color:var(--muted); font-size:.92rem }
+    .footer-note{ color:var(--muted); font-size:.85rem }
+
+    /* Compact inputs on desktop */
+    @media (min-width: 992px){
+      .form-control, .form-select { padding:.55rem .7rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top bar -->
+  <nav class="navbar navbar-expand-lg hero">
+    <div class="container">
+      <span class="brand-badge me-2">BV</span>
+      <a class="navbar-brand fw-semibold text-white" href="#">BANKING VERIFICATION PORTAL</a>
+      <span class="ms-3 tagline d-none d-md-inline">REST • JSON • Local dev</span>
+      <div class="ms-auto d-flex align-items-center gap-2">
+        <span class="badge text-bg-dark border">Localhost</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Controls -->
+  <section class="container py-4">
+    <div class="row g-3 align-items-end">
+      <div class="col-12 col-md-6 col-xl-4">
+        <label class="form-label">Base URL</label>
+        <input id="baseUrl" type="text" class="form-control" placeholder="http://localhost:8080">
+      </div>
+      <div class="col-6 col-md-3 col-xl-2">
+        <label class="form-label">Base Path</label>
+        <select id="basePath" class="form-select">
+          <option value="/v1/api">/v1/api</option>
+          <option value="/api/v1">/api/v1</option>
+        </select>
+      </div>
+      <div class="col-6 col-md-3 col-xl-2">
+        <label class="form-label">X-Forwarded-For (opt)</label>
+        <input id="xff" type="text" class="form-control" placeholder="203.0.113.7">
+      </div>
+      <div class="col-12 col-md-6 col-xl-2">
+        <label class="form-label">API Username</label>
+        <input id="apiUser" type="text" class="form-control" placeholder="zbuser">
+      </div>
+      <div class="col-12 col-md-6 col-xl-2">
+        <label class="form-label">API Password</label>
+        <input id="apiPass" type="password" class="form-control" placeholder="••••••••">
+      </div>
+    </div>
+    <div class="d-flex gap-2 mt-3">
+      <button class="btn btn-ghost" onclick="persist()"><i class="bi bi-save me-1"></i>Save</button>
+      <button class="btn btn-ghost" onclick="resetSettings()"><i class="bi bi-arrow-counterclockwise me-1"></i>Reset</button>
+    </div>
+  </section>
+
+  <section class="container pb-4">
+    <div class="row g-4">
+      <!-- Lookup -->
+      <div class="col-12 col-lg-5">
+        <div class="card-x p-3 h-100">
+          <div class="d-flex align-items-center justify-content-between">
+            <h5 class="mb-0">Lookup Civilian</h5>
+            <span class="text-muted small">POST <span class="kbd">/civilians/lookup</span></span>
+          </div>
+          <hr class="border-secondary-subtle">
+
+          <div class="row g-3">
+            <div class="col-12">
+              <label class="form-label">National ID</label>
+              <input id="lookupNid" class="form-control" placeholder="292011762N22">
+            </div>
+            <div class="col-12 d-grid">
+              <button id="btnLookup" class="btn btn-brand" onclick="lookup()">
+                <span class="me-2"><i class="bi bi-search"></i></span> Lookup
+              </button>
+            </div>
+          </div>
+
+          <div class="mt-3">
+            <div id="lookupToast" class="alert d-none" role="alert"></div>
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <span class="text-muted small">Response</span>
+              <div class="btn-group btn-group-sm">
+                <button class="btn btn-ghost" onclick="copyText('lookupOut')"><i class="bi bi-clipboard"></i></button>
+                <button class="btn btn-ghost" onclick="clearOut('lookupOut')"><i class="bi bi-x-lg"></i></button>
+              </div>
+            </div>
+            <pre id="lookupOut" class="json"></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Create -->
+      <div class="col-12 col-lg-7">
+        <div class="card-x p-3 h-100">
+          <div class="d-flex align-items-center justify-content-between">
+            <h5 class="mb-0">Create Civilian</h5>
+            <span class="text-muted small">POST <span class="kbd">/civilians</span></span>
+          </div>
+          <hr class="border-secondary-subtle">
+
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label">First Name</label>
+              <input id="cFirst" class="form-control" placeholder="Jane">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Last Name</label>
+              <input id="cLast" class="form-control" placeholder="Doe">
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">Gender</label>
+              <input id="cGender" class="form-control" placeholder="F">
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">DOB (YYYY-MM-DD)</label>
+              <input id="cDob" class="form-control" placeholder="1992-04-10">
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">National ID</label>
+              <input id="cNid" class="form-control" placeholder="ZX901234">
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Email</label>
+              <input id="cEmail" class="form-control" placeholder="jane.doe@example.com">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Phone <span class="text-muted">(format: +263XXXXXXXXX)</span></label>
+              <input id="cPhone" class="form-control" placeholder="+263785689201">
+            </div>
+
+            <div class="col-12">
+              <label class="form-label">Address</label>
+              <input id="cAddr" class="form-control" placeholder="12 Samora Machel Ave, Harare">
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Education</label>
+              <input id="cEdu" class="form-control" placeholder="BSc Computer Science">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Employment Status</label>
+              <input id="cEmpStatus" class="form-control" placeholder="Employed">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Employer</label>
+              <input id="cEmployer" class="form-control" placeholder="Datum Ltd">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Monthly Income</label>
+              <input id="cIncome" class="form-control" placeholder="1500.00" type="number" step="0.01" min="0">
+            </div>
+
+            <div class="col-md-4">
+              <label class="form-label">Marital Status</label>
+              <input id="cMarital" class="form-control" placeholder="Single">
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">Blood Type</label>
+              <input id="cBlood" class="form-control" placeholder="O+">
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">Allergies</label>
+              <input id="cAllergies" class="form-control" placeholder="None">
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Bank Name</label>
+              <input id="cBank" class="form-control" placeholder="CBZ">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Account Number</label>
+              <input id="cAcc" class="form-control" placeholder="1234567890">
+            </div>
+
+            <div class="col-md-4">
+              <label class="form-label">Credit Score</label>
+              <input id="cScore" class="form-control" placeholder="720" type="number" min="0" max="1000">
+            </div>
+
+            <!-- NEW FIELDS -->
+            <div class="col-md-4">
+              <label class="form-label">Credit Cards (Count)</label>
+              <input id="cCards" class="form-control" placeholder="0" type="number" min="0" step="1">
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">Current Loans (Count)</label>
+              <input id="cLoans" class="form-control" placeholder="0" type="number" min="0" step="1">
+            </div>
+
+            <div class="col-12 d-grid mt-2">
+              <button id="btnCreate" class="btn btn-brand" onclick="createCivilian()">
+                <span class="me-2"><i class="bi bi-plus-lg"></i></span> Create
+              </button>
+            </div>
+          </div>
+
+          <div class="mt-3">
+            <div id="createToast" class="alert d-none" role="alert"></div>
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <span class="text-muted small">Response</span>
+              <div class="btn-group btn-group-sm">
+                <button class="btn btn-ghost" onclick="copyText('createOut')"><i class="bi bi-clipboard"></i></button>
+                <button class="btn btn-ghost" onclick="clearOut('createOut')"><i class="bi bi-x-lg"></i></button>
+              </div>
+            </div>
+            <pre id="createOut" class="json"></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="container pb-5">
+    <div class="glass p-3 d-flex justify-content-between align-items-center">
+      <span class="footer-note">
+        Tip: press <span class="kbd">S</span> to Save Settings • <span class="kbd">L</span> to Load
+      </span>
+      <div class="d-flex gap-2">
+        <a class="btn btn-sm btn-ghost" href="#" onclick="copyLast()"><i class="bi bi-clipboard me-1"></i>Copy Last JSON</a>
+        <a class="btn btn-sm btn-ghost" href="#" onclick="clearAll()"><i class="bi bi-trash me-1"></i>Clear All</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const el = id => document.getElementById(id);
+    const toast = (node, msg, type='info') => {
+      node.className = 'alert alert-' + (type==='info'?'primary':type);
+      node.textContent = msg; node.classList.remove('d-none');
+      clearTimeout(node._t); node._t = setTimeout(()=>node.classList.add('d-none'), 4000);
+    };
+    const setBusy = (btn, busy=true) => {
+      btn.disabled = busy;
+      if(busy){ btn.dataset.prev = btn.innerHTML; btn.innerHTML = '<span class="spin"></span> Working...'; }
+      else btn.innerHTML = btn.dataset.prev || btn.innerHTML;
+    };
+
+    const endpoint = (suffix) => {
+      let base = el('baseUrl').value.trim().replace(/\/$/,'') || 'http://localhost:8080';
+      let path = el('basePath').value || '/v1/api';
+      return base + path + suffix;
+    };
+    const commonHeaders = () => {
+      const h = { 'Content-Type': 'application/json' };
+      const xff = el('xff').value.trim();
+      if (xff) h['X-Forwarded-For'] = xff;
+      return h;
+    };
+
+    const persist = () => {
+      const data = {
+        baseUrl: el('baseUrl').value,
+        basePath: el('basePath').value,
+        xff: el('xff').value,
+        apiUser: el('apiUser').value,
+        apiPass: el('apiPass').value
+      };
+      localStorage.setItem('bvportal', JSON.stringify(data));
+      alert('Settings saved ✅');
+    };
+    const load = () => {
+      const raw = localStorage.getItem('bvportal'); if(!raw) return;
+      try{
+        const d = JSON.parse(raw);
+        el('baseUrl').value = d.baseUrl || 'http://localhost:8080';
+        el('basePath').value = d.basePath || '/v1/api';
+        el('xff').value = d.xff || '';
+        el('apiUser').value = d.apiUser || '';
+        el('apiPass').value = d.apiPass || '';
+      }catch(e){}
+    };
+    const resetSettings = () => { localStorage.removeItem('bvportal'); location.reload(); };
+    let lastJson = null;
+    function copyLast(){ if(!lastJson){ alert('Nothing to copy yet'); return; } navigator.clipboard.writeText(JSON.stringify(lastJson, null, 2)); alert('Copied!'); }
+    function copyText(id){ const t = el(id).textContent; if(!t){ alert('Nothing to copy'); return; } navigator.clipboard.writeText(t); }
+    function clearOut(id){ el(id).textContent = ''; }
+    function clearAll(){ clearOut('lookupOut'); clearOut('createOut'); }
+
+    // Lightweight syntax highlighting
+    function pretty(obj){
+      const json = JSON.stringify(obj, null, 2)
+        .replace(/(&|<|>)/g, s=>({ '&':'&amp;','<':'&lt;','>':'&gt;' }[s]))
+        .replace(/\"([^"]+)\":/g, '<span class="k">"$1"</span>:')
+        .replace(/\"([^"]*)\"(?=\s*[,\]}])/g, '<span class="s">"$1"</span>')
+        .replace(/\b(-?\d+(\.\d+)?)\b/g, '<span class="n">$1</span>')
+        .replace(/\b(true|false)\b/g, '<span class="b">$1</span>')
+        .replace(/\bnull\b/g, '<span class="l">null</span>');
+      return json;
+    }
+
+    async function lookup(){
+      const btn = el('btnLookup'); setBusy(btn, true);
+      const url = endpoint('/civilians/lookup');
+      const payload = {
+        username: el('apiUser').value.trim(),
+        password: el('apiPass').value,
+        nationalId: el('lookupNid').value.trim()
+      };
+      const out = el('lookupOut'), banner = el('lookupToast');
+      out.innerHTML = '';
+      try{
+        const res = await fetch(url, { method:'POST', headers: commonHeaders(), body: JSON.stringify(payload) });
+        const data = await res.json().catch(()=>({ message:'<no json body>'}));
+        lastJson = data;
+        out.innerHTML = pretty(data);
+        if(res.ok) toast(banner, 'Lookup OK • ' + res.status, 'success');
+        else toast(banner, (data.message || 'Error') + ' • ' + res.status, 'danger');
+      }catch(err){
+        toast(banner, 'Network error: ' + err.message, 'danger');
+      }finally{ setBusy(btn, false); }
+    }
+
+    const toNullIfEmpty = v => (v === '' ? null : v);
+    const toNumberOrNull = v => (v === '' || isNaN(Number(v)) ? null : Number(v));
+    const toIntOrNull = v => (v === '' || isNaN(parseInt(v)) ? null : parseInt(v,10));
+
+    async function createCivilian(){
+      const btn = el('btnCreate'); setBusy(btn, true);
+      const url = endpoint('/civilians');
+
+      // client-side phone nudge (matches server-side +263 + 9 digits)
+      const phone = el('cPhone').value.trim();
+      if (phone && !/^\+263\d{9}$/.test(phone)) {
+        alert('Phone must be +263 followed by 9 digits, e.g. +263785689201');
+        setBusy(btn, false);
+        return;
+      }
+
+      const payload = {
+        username: el('apiUser').value.trim(),
+        password: el('apiPass').value,
+        firstName: el('cFirst').value.trim(),
+        lastName: el('cLast').value.trim(),
+        gender: toNullIfEmpty(el('cGender').value.trim()),
+        dateOfBirth: toNullIfEmpty(el('cDob').value.trim()),
+        nationalId: el('cNid').value.trim(),
+        phone: toNullIfEmpty(phone),
+        email: toNullIfEmpty(el('cEmail').value.trim()),
+        address: toNullIfEmpty(el('cAddr').value.trim()),
+        education: toNullIfEmpty(el('cEdu').value.trim()),
+        employmentStatus: toNullIfEmpty(el('cEmpStatus').value.trim()),
+        employer: toNullIfEmpty(el('cEmployer').value.trim()),
+        monthlyIncome: toNumberOrNull(el('cIncome').value),
+        maritalStatus: toNullIfEmpty(el('cMarital').value.trim()),
+        bloodType: toNullIfEmpty(el('cBlood').value.trim()),
+        allergies: toNullIfEmpty(el('cAllergies').value.trim()),
+        bankName: toNullIfEmpty(el('cBank').value.trim()),
+        accountNumber: toNullIfEmpty(el('cAcc').value.trim()),
+        creditScore: toIntOrNull(el('cScore').value),
+
+        // NEW FIELDS
+        creditCardsCount: toIntOrNull(el('cCards').value) ?? 0,
+        currentLoansCount: toIntOrNull(el('cLoans').value) ?? 0
+      };
+
+      const out = el('createOut'), banner = el('createToast');
+      out.innerHTML = '';
+      try{
+        const res = await fetch(url, { method:'POST', headers: commonHeaders(), body: JSON.stringify(payload) });
+        const data = await res.json().catch(()=>({ message:'<no json body>'}));
+        lastJson = data;
+        out.innerHTML = pretty(data);
+        if(res.ok && res.status===201) toast(banner, 'Created • ' + (res.headers.get('Location') || ''), 'success');
+        else toast(banner, (data.message || 'Error') + ' • ' + res.status, 'danger');
+      }catch(err){
+        toast(banner, 'Network error: ' + err.message, 'danger');
+      }finally{
+        setBusy(btn, false);
+      }
+    }
+
+    // hotkeys
+    document.addEventListener('keydown', e=>{
+      const k = e.key.toLowerCase();
+      if(k==='s'){ persist(); }
+      if(k==='l'){ load(); alert('Settings loaded'); }
+    });
+
+    // defaults + hints
+    window.addEventListener('DOMContentLoaded', ()=>{
+      el('baseUrl').value = 'http://localhost:8080';
+      load();
+      // Prefill example data for quick try
+      if(!el('apiUser').value) el('apiUser').value = 'zbuser';
+      if(!el('lookupNid').value) el('lookupNid').value = '292011762N22';
+      if(!el('cFirst').value) el('cFirst').value = 'Jane';
+      if(!el('cLast').value) el('cLast').value = 'Doe';
+      if(!el('cNid').value) el('cNid').value = 'ZX901234';
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

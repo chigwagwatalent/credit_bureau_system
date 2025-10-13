@@ -3,15 +3,15 @@ package com.cbs.system.configs;
 
 import com.cbs.system.repository.APIUsersRepository;
 import com.cbs.system.repository.ApiRequestAuditRepository;
-import com.cbs.system.security.ApiHeadersAuthFilter;
 import com.cbs.system.security.JwtService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.cors.*;
@@ -19,7 +19,6 @@ import org.springframework.web.cors.*;
 import java.util.List;
 
 @Configuration
-@EnableWebSecurity
 public class SecurityConfig {
 
     private final CustomUserDetailsService userDetailsService;
@@ -38,9 +37,7 @@ public class SecurityConfig {
     }
 
     @Bean
-    public BCryptPasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder(); 
-    }
+    public BCryptPasswordEncoder passwordEncoder() { return new BCryptPasswordEncoder(); }
 
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
@@ -51,18 +48,35 @@ public class SecurityConfig {
     }
 
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        ApiHeadersAuthFilter apiFilter = new ApiHeadersAuthFilter(jwtService, apiUsersRepository, auditRepository);
+    @Order(1)
+    public SecurityFilterChain apiChain(HttpSecurity http) throws Exception {
+        http
+            .securityMatcher("/v1/api/**", "/api/v1/**")
+            .cors(Customizer.withDefaults())
+            .csrf(csrf -> csrf.disable())
+            .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+            .authorizeHttpRequests(auth -> auth
+                .requestMatchers(HttpMethod.POST,
+                        "/v1/api/civilians/lookup",
+                        "/api/v1/civilians/lookup",
+                        "/v1/api/civilians",
+                        "/api/v1/civilians").permitAll()
+                .anyRequest().authenticated()
+            )
+            .httpBasic(Customizer.withDefaults());
+        return http.build();
+    }
 
+    @Bean
+    @Order(2)
+    public SecurityFilterChain webChain(HttpSecurity http) throws Exception {
         http
             .cors(Customizer.withDefaults())
-            .csrf(csrf -> csrf.ignoringRequestMatchers("/datum/login", "/v1/api/**"))
-            .securityMatcher("/**") 
+            .csrf(Customizer.withDefaults())
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/datum/login").permitAll()
                 .requestMatchers("/login", "/register", "/css/**", "/js/**", "/images/**", "/webjars/**").permitAll()
                 .requestMatchers("/admin/**").hasRole("ADMIN")
-                .requestMatchers("/v1/api/**").authenticated()
                 .anyRequest().authenticated()
             )
             .formLogin(form -> form
@@ -79,21 +93,17 @@ public class SecurityConfig {
                 .deleteCookies("JSESSIONID")
                 .permitAll()
             )
-            .sessionManagement(sm -> sm
-                .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
-            )
-            .addFilterBefore(apiFilter, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter.class);
-
+            .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED));
         return http.build();
     }
-    
+
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration cfg = new CorsConfiguration();
-        cfg.setAllowedOrigins(List.of("*")); // TODO: chnage in prod
+        cfg.setAllowedOrigins(List.of("*"));
         cfg.setAllowedMethods(List.of("GET","POST","PUT","PATCH","DELETE","OPTIONS"));
         cfg.setAllowedHeaders(List.of("*"));
-        cfg.setExposedHeaders(List.of("Authorization","CDB-XD","EDS-XD"));
+        cfg.setExposedHeaders(List.of());
         cfg.setAllowCredentials(false);
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", cfg);

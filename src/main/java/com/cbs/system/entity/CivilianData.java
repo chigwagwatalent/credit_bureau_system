@@ -1,6 +1,7 @@
 package com.cbs.system.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
@@ -46,7 +47,7 @@ public class CivilianData {
     private String employer;
 
     @Column(name = "monthly_income", precision = 10, scale = 2)
-    private java.math.BigDecimal monthlyIncome;
+    private BigDecimal monthlyIncome;
 
     @Column(name = "marital_status", length = 50)
     private String maritalStatus;
@@ -66,7 +67,14 @@ public class CivilianData {
     @Column(name = "credit_score")
     private Integer creditScore;
 
-    // ================== Constructors ==================
+    @Min(0)
+    @Column(name = "credit_cards_count", nullable = false)
+    private Integer creditCardsCount = 0;
+
+    @Min(0)
+    @Column(name = "current_loans_count", nullable = false)
+    private Integer currentLoansCount = 0;
+    
     public CivilianData() {}
 
     public CivilianData(String firstName, String lastName, String gender, LocalDate dateOfBirth,
@@ -94,7 +102,20 @@ public class CivilianData {
         this.accountNumber = accountNumber;
         this.creditScore = creditScore;
     }
-    
+
+    public CivilianData(String firstName, String lastName, String gender, LocalDate dateOfBirth,
+                        String nationalId, String phone, String email, String address,
+                        String education, String employmentStatus, String employer,
+                        BigDecimal monthlyIncome, String maritalStatus, String bloodType,
+                        String allergies, String bankName, String accountNumber,
+                        Integer creditScore, Integer creditCardsCount, Integer currentLoansCount) {
+        this(firstName, lastName, gender, dateOfBirth, nationalId, phone, email, address,
+             education, employmentStatus, employer, monthlyIncome, maritalStatus, bloodType,
+             allergies, bankName, accountNumber, creditScore);
+        this.creditCardsCount = creditCardsCount;
+        this.currentLoansCount = currentLoansCount;
+    }
+
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
@@ -151,8 +172,24 @@ public class CivilianData {
 
     public Integer getCreditScore() { return creditScore; }
     public void setCreditScore(Integer creditScore) { this.creditScore = creditScore; }
-    
-    
+
+    public Integer getCreditCardsCount() { return creditCardsCount; }
+    public void setCreditCardsCount(Integer creditCardsCount) {
+        this.creditCardsCount = (creditCardsCount == null || creditCardsCount < 0) ? 0 : creditCardsCount;
+    }
+
+    public Integer getCurrentLoansCount() { return currentLoansCount; }
+    public void setCurrentLoansCount(Integer currentLoansCount) {
+        this.currentLoansCount = (currentLoansCount == null || currentLoansCount < 0) ? 0 : currentLoansCount;
+    }
+
+    @PrePersist
+    @PreUpdate
+    private void ensureNonNullCounts() {
+        if (creditCardsCount == null || creditCardsCount < 0) creditCardsCount = 0;
+        if (currentLoansCount == null || currentLoansCount < 0) currentLoansCount = 0;
+    }
+
     @Override
     public String toString() {
         return "CivilianData{" +
@@ -175,6 +212,8 @@ public class CivilianData {
                 ", bankName='" + bankName + '\'' +
                 ", accountNumber='" + accountNumber + '\'' +
                 ", creditScore=" + creditScore +
+                ", creditCardsCount=" + creditCardsCount +
+                ", currentLoansCount=" + currentLoansCount +
                 '}';
     }
 }

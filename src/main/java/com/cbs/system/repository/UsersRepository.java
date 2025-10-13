@@ -7,6 +7,8 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 import java.util.Optional;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 public interface UsersRepository extends JpaRepository<Users, Long> {
     Optional<Users> findByUsername(String username);
@@ -18,4 +20,10 @@ public interface UsersRepository extends JpaRepository<Users, Long> {
 
     @Query("select u.role as role, count(u) as total from Users u group by u.role")
     List<Object[]> countByRoleGrouped();
+    
+
+    Page<Users> findByUsernameContainingIgnoreCaseOrEmailContainingIgnoreCase(
+            String username, String email, Pageable pageable
+    );
+
 }
