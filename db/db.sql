@@ -60,7 +60,7 @@ CREATE TABLE `api_users` (
   `allowed_ip` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -69,7 +69,7 @@ CREATE TABLE `api_users` (
 
 LOCK TABLES `api_users` WRITE;
 /*!40000 ALTER TABLE `api_users` DISABLE KEYS */;
-INSERT INTO `api_users` VALUES (2,'dxsuser','$2a$10$.1/.VMQrO4HILIkEwSvwNeLvA.bPlnhcjsPGD.LhqDi6pyPbmr7VC',1,NULL);
+INSERT INTO `api_users` VALUES (2,'dxsuser','$2a$10$jz0oi3ooB8GpGLC9UoyhaeJIGSPLrWtlPTBZqWK5rqQ2VMHOXu.xq',1,'203.0.113.90'),(3,'zbuser','$2a$10$wx6QiQ2Rtv.NiTsI6kWeaue.zsX97LVz4pVCLKu6jQtFLgNLYeu0G',1,'203.0.113.7');
 /*!40000 ALTER TABLE `api_users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -100,10 +100,12 @@ CREATE TABLE `civilian_data` (
   `bank_name` varchar(100) DEFAULT NULL,
   `account_number` varchar(50) DEFAULT NULL,
   `credit_score` int DEFAULT NULL,
+  `credit_cards_count` int unsigned NOT NULL DEFAULT '0',
+  `current_loans_count` int unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `national_id` (`national_id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -112,6 +114,7 @@ CREATE TABLE `civilian_data` (
 
 LOCK TABLES `civilian_data` WRITE;
 /*!40000 ALTER TABLE `civilian_data` DISABLE KEYS */;
+INSERT INTO `civilian_data` VALUES (1,'Talent','Chigwagwa','M',NULL,'292011762N22','0785689201','talentchigwagwa@gmail.com','1307 YUKON STREET','BSc','Employed','MSU',800.00,'','o-','wert','ZB','12455648645898',12,0,0),(2,'Jane','Doe','F','1992-04-10','ZX901234','+263771234567','jane.doe@example.com','12 Samora Machel Ave, Harare','BSc Computer Science','Employed','Datum Ltd',1500.00,'Single','O+','None','CBZ','1234567890',720,0,0);
 /*!40000 ALTER TABLE `civilian_data` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -187,4 +190,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-10-06 15:47:52
+-- Dump completed on 2025-10-22 12:13:37
